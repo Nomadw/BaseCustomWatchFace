@@ -1,0 +1,25 @@
+#Thu Mar 30 20:13:20 BST 2017
+renamed.7=classes8.dex
+renamed.6=classes4.dex
+renamed.5=classes.dex
+renamed.4=classes6.dex
+renamed.3=classes3.dex
+renamed.2=classes5.dex
+renamed.1=classes7.dex
+renamed.0=classes2.dex
+base.7=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-23.0.1_d549de19b12dc583c9c92b246b485ac9c23198e7
+base.6=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c531cc411bc15bc73f2e7b3aa63468df417eb2c8
+base.5=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_0d22a538738876d4d3cff0743eac35b5ff9daaee
+base.4=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_eb276b9dc0d0964f72e82b4392c8b30ee372ecd8
+base.3=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c422a86287ca84bbbf27e16ea6a219fb04f885da
+base.2=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e04e04381554354d0b59f8b37c175fd541c0a55c
+base.1=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\internal_impl-23.0.1_fef8894feb1fc288de869ab9349e263b19338356
+base.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_86a4efd89bcee540a2ef080298c323163b7edf33
+file.7=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-23.0.1_d549de19b12dc583c9c92b246b485ac9c23198e7\\classes.dex
+file.6=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c531cc411bc15bc73f2e7b3aa63468df417eb2c8\\classes.dex
+file.5=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_0d22a538738876d4d3cff0743eac35b5ff9daaee\\classes.dex
+file.4=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_eb276b9dc0d0964f72e82b4392c8b30ee372ecd8\\classes.dex
+file.3=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c422a86287ca84bbbf27e16ea6a219fb04f885da\\classes.dex
+file.2=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_e04e04381554354d0b59f8b37c175fd541c0a55c\\classes.dex
+file.1=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\internal_impl-23.0.1_fef8894feb1fc288de869ab9349e263b19338356\\classes.dex
+file.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_86a4efd89bcee540a2ef080298c323163b7edf33\\classes.dex

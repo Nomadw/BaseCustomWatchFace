@@ -1,0 +1,7 @@
+#Thu Mar 30 20:13:20 BST 2017
+base.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_8d124b68a8c732cebead3f930f2952a27819da12
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_fe8d600ec6b2f816ad00e9a2ead22a552aa05933\\classes.dex
+base.1=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_fe8d600ec6b2f816ad00e9a2ead22a552aa05933
+file.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\2-background\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_8d124b68a8c732cebead3f930f2952a27819da12\\classes.dex

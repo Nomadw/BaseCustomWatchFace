@@ -1,0 +1,4 @@
+#Thu Mar 30 19:37:18 BST 2017
+base.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\1-base\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_1
+renamed.0=classes.dex
+file.0=C\:\\Users\\User\\Documents\\GitHub\\watchface\\1-base\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_1\\classes.dex

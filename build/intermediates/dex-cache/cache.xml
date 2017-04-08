@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Documents\GitHub\watchface\2-background\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="399461384200143f808576dd2fe9479f367891ca">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\2-background\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_8d124b68a8c732cebead3f930f2952a27819da12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\6ecd1797b703f86d6f692b4833d6cd8120545bd8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_eb276b9dc0d0964f72e82b4392c8b30ee372ecd8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_18aeaaf20f4e40cb7f73cacdb4715ec49dc43ed3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Documents\GitHub\watchface\2-background\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\2-background\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_fe8d600ec6b2f816ad00e9a2ead22a552aa05933\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\fa9a5353cd6f368b206e9bc2db6bfd4ed6e928ad\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c422a86287ca84bbbf27e16ea6a219fb04f885da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\eaacd4ecc25fb4424a583ee34e7588ba7623866d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d22a538738876d4d3cff0743eac35b5ff9daaee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.0.1_d549de19b12dc583c9c92b246b485ac9c23198e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\dee9a4ea3a94254423cd6142bcd73f6082b9c7e9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="40a6fbd08fdbb71c74751916201e5fd8694e16ca">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e04e04381554354d0b59f8b37c175fd541c0a55c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\aaf5b7e002d793481aea2f006aeb5ac997ed8442\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c531cc411bc15bc73f2e7b3aa63468df417eb2c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="11630bb0a8d3bfda65f653ee7287a48a3fe75396">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c8b7f813ed7f2663688912be2f429af189f50c84\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\aaf5b7e002d793481aea2f006aeb5ac997ed8442\output\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.1_fef8894feb1fc288de869ab9349e263b19338356\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\ab3733b2e5400ea0be8dba6db435050b950618e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="C:\Users\User\Documents\GitHub\watchface\1-base\build\intermediates\transforms\dex\debug\folders\1000\10\classes_86a4efd89bcee540a2ef080298c323163b7edf33\classes.dex" />
+    </item>
+
+</items>
