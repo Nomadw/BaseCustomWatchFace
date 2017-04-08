@@ -20,10 +20,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.wearable.watchface.CanvasWatchFaceService;
@@ -79,7 +84,10 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
 
         private boolean mRegisteredTimeZoneReceiver = false;
 
-        private static final float STROKE_WIDTH = 3f;
+        // Feel free to change these values and see what happens to the watch face.
+        private static final float HAND_END_CAP_RADIUS = 4f;
+        private static final float STROKE_WIDTH = 4f;
+        private static final int SHADOW_RADIUS = 6;
 
         private Calendar mCalendar;
 
@@ -88,14 +96,30 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
 
         private boolean mAmbient;
 
+        private Bitmap mBackgroundBitmap;
+        private Bitmap mGrayBackgroundBitmap;
+
         private float mHourHandLength;
         private float mMinuteHandLength;
         private float mSecondHandLength;
+
+        /**
+         * Whether the display supports fewer bits for each color in ambient mode.
+         * When true, we disable anti-aliasing in ambient mode.
+         */
+        private boolean mLowBitAmbient;
+        /**
+         * Whether the display supports burn in protection in ambient mode.
+         * When true, remove the background in ambient mode.
+         */
+        private boolean mBurnInProtection;
 
         private int mWidth;
         private int mHeight;
         private float mCenterX;
         private float mCenterY;
+        private float mScale = 1;
+        private Rect mCardBounds = new Rect();
 
         @Override
         public void onCreate(SurfaceHolder holder) {
@@ -110,11 +134,16 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
             mBackgroundPaint = new Paint();
             mBackgroundPaint.setColor(Color.BLACK);
 
+            final int backgroundResId = R.drawable.custom_background;
+
+            mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), backgroundResId);
             mHandPaint = new Paint();
             mHandPaint.setColor(Color.WHITE);
             mHandPaint.setStrokeWidth(STROKE_WIDTH);
             mHandPaint.setAntiAlias(true);
             mHandPaint.setStrokeCap(Paint.Cap.ROUND);
+            mHandPaint.setShadowLayer(SHADOW_RADIUS, 0, 0, Color.BLACK);
+            mHandPaint.setStyle(Paint.Style.STROKE);
 
             mCalendar = Calendar.getInstance();
         }
@@ -123,6 +152,13 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
         public void onDestroy() {
             mUpdateTimeHandler.removeMessages(R.id.message_update);
             super.onDestroy();
+        }
+
+        @Override
+        public void onPropertiesChanged(Bundle properties) {
+            super.onPropertiesChanged(properties);
+            mLowBitAmbient = properties.getBoolean(PROPERTY_LOW_BIT_AMBIENT, false);
+            mBurnInProtection = properties.getBoolean(PROPERTY_BURN_IN_PROTECTION, false);
         }
 
         @Override
@@ -136,6 +172,9 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
             super.onAmbientModeChanged(inAmbientMode);
             if (mAmbient != inAmbientMode) {
                 mAmbient = inAmbientMode;
+                if (mLowBitAmbient || mBurnInProtection) {
+                    mHandPaint.setAntiAlias(!inAmbientMode);
+                }
                 invalidate();
             }
 
@@ -159,12 +198,33 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
              */
             mCenterX = mWidth / 2f;
             mCenterY = mHeight / 2f;
+            mScale = ((float) width) / (float) mBackgroundBitmap.getWidth();
             /*
              * Calculate the lengths of the watch hands and store them in member variables.
              */
-            mHourHandLength = mCenterX - 80;
-            mMinuteHandLength = mCenterX - 40;
-            mSecondHandLength = mCenterX - 20;
+            mHourHandLength = mCenterX * 0.5f;
+            mMinuteHandLength = mCenterX * 0.7f;
+            mSecondHandLength = mCenterX * 0.9f;
+
+            mBackgroundBitmap = Bitmap.createScaledBitmap(mBackgroundBitmap,
+                    (int) (mBackgroundBitmap.getWidth() * mScale),
+                    (int) (mBackgroundBitmap.getHeight() * mScale), true);
+
+            if (!mBurnInProtection || !mLowBitAmbient) {
+                initGrayBackgroundBitmap();
+            }
+        }
+
+        private void initGrayBackgroundBitmap() {
+            mGrayBackgroundBitmap = Bitmap.createBitmap(mBackgroundBitmap.getWidth(),
+                    mBackgroundBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(mGrayBackgroundBitmap);
+            Paint grayPaint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            colorMatrix.setSaturation(0);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(colorMatrix);
+            grayPaint.setColorFilter(filter);
+            canvas.drawBitmap(mBackgroundBitmap, 0, 0, grayPaint);
         }
 
         @Override
@@ -172,8 +232,13 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
             long now = System.currentTimeMillis();
             mCalendar.setTimeInMillis(now);
 
-            // Draw the background.
-            canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mBackgroundPaint);
+            if (mAmbient && (mLowBitAmbient || mBurnInProtection)) {
+                canvas.drawColor(Color.BLACK);
+            } else if (mAmbient) {
+                canvas.drawBitmap(mGrayBackgroundBitmap, 0, 0, mBackgroundPaint);
+            } else {
+                canvas.drawBitmap(mBackgroundBitmap, 0, 0, mBackgroundPaint);
+            }
 
             /*
              * These calculations reflect the rotation in degrees per unit of time, e.g.,
@@ -192,18 +257,33 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
             canvas.save();
 
             canvas.rotate(hoursRotation, mCenterX, mCenterY);
-            canvas.drawLine(mCenterX, mCenterY, mCenterX, mCenterY - mHourHandLength, mHandPaint);
+            drawHand(canvas, mHourHandLength);
 
             canvas.rotate(minutesRotation - hoursRotation, mCenterX, mCenterY);
-            canvas.drawLine(mCenterX, mCenterY, mCenterX, mCenterY - mMinuteHandLength, mHandPaint);
+            drawHand(canvas, mMinuteHandLength);
 
+            /*
+             * Make sure the "seconds" hand is drawn only when we are in interactive mode.
+             * Otherwise we only update the watch face once a minute.
+             */
             if (!mAmbient) {
                 canvas.rotate(secondsRotation - minutesRotation, mCenterX, mCenterY);
-                canvas.drawLine(mCenterX, mCenterY, mCenterX, mCenterY - mSecondHandLength,
-                        mHandPaint);
+                canvas.drawLine(mCenterX, mCenterY - HAND_END_CAP_RADIUS, mCenterX,
+                        mCenterY - mSecondHandLength, mHandPaint);
             }
+            canvas.drawCircle(mCenterX, mCenterY, HAND_END_CAP_RADIUS, mHandPaint);
             // restore the canvas' original orientation.
             canvas.restore();
+
+            if (mAmbient) {
+                canvas.drawRect(mCardBounds, mBackgroundPaint);
+            }
+        }
+
+        private void drawHand(Canvas canvas, float handLength) {
+            canvas.drawRoundRect(mCenterX - HAND_END_CAP_RADIUS, mCenterY - handLength,
+                    mCenterX + HAND_END_CAP_RADIUS, mCenterY + HAND_END_CAP_RADIUS,
+                    HAND_END_CAP_RADIUS, HAND_END_CAP_RADIUS, mHandPaint);
         }
 
         @Override
@@ -212,7 +292,6 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
 
             if (visible) {
                 registerReceiver();
-
                 // Update time zone in case it changed while we weren't visible.
                 mCalendar.setTimeZone(TimeZone.getDefault());
                 invalidate();
@@ -221,11 +300,17 @@ public class MyWatchFaceService extends CanvasWatchFaceService {
             }
 
             /*
-            * Whether the timer should be running depends on whether we're visible
-            * (as well as whether we're in ambient mode),
-            * so we may need to start or stop the timer.
-            */
+             * Whether the timer should be running depends on whether we're visible
+             * (as well as whether we're in ambient mode),
+             * so we may need to start or stop the timer.
+             */
             updateTimer();
+        }
+
+        @Override
+        public void onPeekCardPositionUpdate(Rect rect) {
+            super.onPeekCardPositionUpdate(rect);
+            mCardBounds.set(rect);
         }
 
         private void registerReceiver() {

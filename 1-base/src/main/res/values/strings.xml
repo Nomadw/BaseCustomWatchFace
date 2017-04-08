@@ -15,6 +15,6 @@
   -->
 
 <resources>
-    <string name="app_name">Codelab Watchface</string>
-    <string name="my_analog_name">Analog Codelab Watchface</string>
+    <string name="app_name">WorshipFace</string>
+    <string name="my_analog_name">Gote Worship</string>
 </resources>
